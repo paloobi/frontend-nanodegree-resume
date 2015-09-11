@@ -99,9 +99,24 @@ var projects = {
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 
-var formattedRole = HTMLheaderRole.replace("%data%", bio["role"]);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
-$("#main").append(work["position"]);
-$("#main").append(education.name);
+
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+	var formattedEmployer = HTMLworkEmployer.replace("%data", item.employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", item.title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+	$(".work-entry:last").append(formattedEmployerTitle);
+};
+
+if (bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+};
+
+for (var skill in bio.skills) {
+	var formattedSkill = HTMLskills.replace("%data%", bio.skills[i])
+	$("#skills").append(formattedSkill);
+}
