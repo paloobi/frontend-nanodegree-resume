@@ -86,12 +86,83 @@ var projects = {
     }
   ]
 };
+projects.display = function() {
+  for (project in projects.projects) {
+    $("#projects").append(HTMLprojectStart);
+    
+    var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+    $(".project-entry:last").append(formattedTitle);
+
+    var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+    $(".project-entry:last").append(formattedDates);
+
+    var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+    $(".project-entry:last").append(formattedDescription);
+
+    if (projects.projects[project].images.length > 0) {
+      var formattedImages = ""
+      for (image in projects.projects[project].images) {
+        formattedImages = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+        $(".project-entry:last").append(formattedImages);
+      }
+    }
+
+  }
+}
+
+projects.display()
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+
+
+function displayPhoto() {
+  var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
+  $("#header").append(formattedBioPic);
+};
+
+function displayWelcomeMsg() {
+  var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage)
+  $("#header").append(formattedWelcomeMsg);
+};
+
+function displaySkills() {
+  if (bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+  };
+
+  for (var skill in bio.skills) {
+    var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill])
+    $("#skills").append(formattedSkill);
+  }
+}
+
+displayPhoto()
+displayWelcomeMsg()
+displaySkills()
+
+function displayContacts() {
+
+  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+  $("#topContacts").append(formattedEmail);
+
+  var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+  $("#topContacts").append(formattedMobile);
+
+  var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+  $("#topContacts").append(formattedGithub);
+
+  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+  $("#topContacts").append(formattedTwitter);
+
+  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+  $("#topContacts").append(formattedLocation);
+}
+
+displayContacts()
 
 function displayWork() {
 	for (job in work.jobs) {
@@ -113,18 +184,16 @@ function displayWork() {
 	}
 };
 
-function displaySkills() {
-	if (bio.skills.length > 0) {
-	  $("#header").append(HTMLskillsStart);
-	};
-
-	for (var skill in bio.skills) {
-	  var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill])
-	  $("#skills").append(formattedSkill);
-	}
-}
-
-displaySkills()
 displayWork()
 
 
+
+
+$(document).click(function(loc) {
+  var x = loc.pageX;
+  var y = loc.pageY;
+  
+  logClicks(x,y);
+});
+
+$("#mapDiv").append(googleMap);
