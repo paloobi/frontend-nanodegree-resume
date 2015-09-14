@@ -216,12 +216,12 @@ var projects = {
       title: "Online Resume",
       dates: "2015",
       description: "Implemented online resume with Bootstrap",
-      images: ["http://alex.polubiec.com/"]
+      images: ["images/online_resume.png"]
     }
   ],
   display: function() {
     for (var project in projects.projects) {
-      if (project.projects.hasOwnProperty(project)) {
+      if (projects.projects.hasOwnProperty(project)) {
         $("#projects").append(HTMLprojectStart);
         
         var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -236,7 +236,7 @@ var projects = {
         if (projects.projects[project].images.length > 0) {
           var formattedImages = "";
           for (var image in projects.projects[project].images) {
-            if (projects.projects[project].hasOwnProperty.images(image)) {
+            if (projects.projects[project].images.hasOwnProperty(image)) {
               formattedImages += HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
               $(".project-entry:last").append(formattedImages);
             }

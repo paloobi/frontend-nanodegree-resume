@@ -14,6 +14,12 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
+h1,
+h2,
+#skills-h3 {
+  font-weight: lighter;
+}
+
 .clear-fix {
   overflow: auto;
 }
@@ -26,13 +32,13 @@ h6 {
 
 h1 {
   font-size: 40px;
-  color: #f5a623;
+  color: #0099CC;
   line-height: 48px;
   display: inline;
 }
 
 h2 {
-  font-weight: bold;
+  font-weight: normal;
   font-size: 24px;
   color: #999;
   line-height: 29px;
@@ -47,7 +53,7 @@ h3 {
 }
 
 h4 {
-  font-weight: bold;
+  font-weight: normal;
   font-size: 14px;
   color: #4a4a4a;
   line-height: 17px;
@@ -100,21 +106,20 @@ a {
 }
 
 #skills-h3 {
-  color: #f5ae23;
+  color: #0099CC;
   display: none;
 }
 
-.orange {
-  background-color: #f5ae23;
+.blue {
+  background-color: #0099CC;
 }
 
-.orange-text {
-  color: #f5ae23;
+.blue-text {
+  color: #0099CC;
 }
 
 .white-text {
-  font-weight: bold;
-  color: #fff;
+  color: #eee;
 }
 
 .gray {
@@ -129,7 +134,8 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #222;
+  font-weight: lighter;
 }
 
 .flex-box {
@@ -211,4 +217,8 @@ span {
   .biopic {
     display: block;
   }
+}
+
+.connect-button {
+  color: #fff;
 }
