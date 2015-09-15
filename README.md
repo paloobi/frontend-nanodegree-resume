@@ -1,13 +1,4 @@
-## How do I complete this project?
-
-1. Go to the [Javascript Basics course](https://www.udacity.com/course/ud804) and select "View Course Materials."
-2. Go through the videos and assignments in this course to learn the JavaScript necessary to build your resume.
-3. Review your work against the Project Rubric (on the next page).
-4. When you are satisfied with your project, submit it according to the Submission Instructions on the next page.
-
-### By the end:
-Your resume will look something like this
-![](http://i.imgur.com/pWU1Xbl.png)
+## Description of Assignment
 
 And your repository will include the following files:
 
